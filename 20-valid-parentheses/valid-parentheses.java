@@ -9,36 +9,27 @@ class Solution {
         }else{
 
         Stack<Character> stack = new Stack<>();
-        int size =0;
 
         for(int i = 0; i<s.length(); i++){
-            if(s.charAt(i)=='(' || s.charAt(i)=='{' || s.charAt(i)=='['){
+            char c = s.charAt(i);
+            if(c=='(' || c=='{' || c =='['){
                 stack.push(s.charAt(i));
-                size++;
-        
             }
+
             else{
-             if( (size != 0) &&(
-                (')' == s.charAt(i) && stack.peek()=='(')
-                || ('}' == s.charAt(i) && stack.peek() == '{')
-                || (']' == s.charAt(i)) && stack.peek() == '[')
-                ){
+                
+                if(stack.isEmpty()){
+                    return false;
+                }
+                char top = stack.peek();
+                if((')'==c && top=='(') || ('}'==c && top=='{') || (']'==c && top=='[')){
                     stack.pop();
-                    size--;
                 }else{
                     return false;
                 }
             }
             }
-System.out.print(size);
-            if(size ==0){
-                return true;
-            }
-            else{
-                return false;
-            }
-
+            return stack.isEmpty();
         }
-        
     }
 }
