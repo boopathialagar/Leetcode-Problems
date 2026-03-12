@@ -3,21 +3,18 @@ import java.util.*;
 class Solution {
 
     public boolean isValid(String s) {
-        int len = s.length();
-        if(len%2!=0){
-            return false;
-        }else{
+        // int len = s.length();
+        // if(len%2!=0){
+        //     return false;
+        // }
 
         Stack<Character> stack = new Stack<>();
-
         for(int i = 0; i<s.length(); i++){
             char c = s.charAt(i);
             if(c=='(' || c=='{' || c =='['){
                 stack.push(s.charAt(i));
             }
-
-            else{
-                
+            else{   
                 if(stack.isEmpty()){
                     return false;
                 }
@@ -30,6 +27,6 @@ class Solution {
             }
             }
             return stack.isEmpty();
-        }
+        
     }
 }
