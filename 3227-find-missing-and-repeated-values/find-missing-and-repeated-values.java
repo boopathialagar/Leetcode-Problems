@@ -9,7 +9,7 @@ class Solution {
                 arr[grid[i][j]] +=1;
             }
         }
-        // for(int i=0;i<len)
+
         for(int i=1;i<arr.length;i++){
             if(arr[i]==2){
                 result[0] = i;
