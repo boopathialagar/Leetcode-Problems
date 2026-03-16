@@ -1,27 +1,27 @@
 class Solution {
-    boolean ispalindrome(String s,int l, int r){
-        while(l<r){
-            if(s.charAt(l)!=s.charAt(r)){
-                return false;
+    public boolean validPalindrome(String s) {
+        int left =0;
+        int right = s.length()-1;
+        while(left<right){
+            if(s.charAt(left)==s.charAt(right)){
+                right--;
+                left++;
+            }else{
+                return isPalindrome(s,left+1,right) || isPalindrome(s,left,right-1); 
             }
-            l++;
-            r--;
         }
         return true;
     }
-    public boolean validPalindrome(String s) {
-       if(!ispalindrome(s,0, s.length()-1)){
-        int left = 0;
-        int right = s.length()-1;
-        while(left<right){
-            if(s.charAt(left)!=s.charAt(right)){
-                return ispalindrome(s,left+1, right) || ispalindrome(s,left, right-1) ;
+
+    public boolean isPalindrome(String s,int l,int r){
+        while(l<r){
+            if(s.charAt(l)==s.charAt(r)){
+                l++;
+                r--;
+            }else{
+                return false;
             }
-            left++;
-            right--;            
         }
-        return false;
+        return true;
     }
-    return true;
-}
 }
