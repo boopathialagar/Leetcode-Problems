@@ -15,11 +15,12 @@
  */
 class Solution {
     public boolean isValidBST(TreeNode root) {
-      return check(root,Long.MIN_VALUE,Long.MAX_VALUE);
+        return checkBST(root,Long.MIN_VALUE,Long.MAX_VALUE);
     }
-    public boolean check(TreeNode root,Long min,Long max){
-        if(root==null)return true;
-        if(root.val>=max || root.val <= min)return false;
-        return check(root.left,min,(long)root.val) && check(root.right,(long)root.val,max);
+    public boolean checkBST(TreeNode root,long min,long max ){
+        if(root == null )return true;
+        if(root.val >= max || root.val <= min)return false;
+        return checkBST(root.left,min,root.val) && checkBST(root.right,root.val,max);
+
     }
 }
