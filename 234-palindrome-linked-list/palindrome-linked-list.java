@@ -33,7 +33,7 @@ class Solution {
     }
     public boolean isPalindrome(ListNode head) {
         ListNode mid = middleNode(head);
-        ListNode sh = reverse(mid.next);
+        ListNode sh = reverse(mid);
         ListNode fh = head;
         while(sh != null && fh !=null){
             if(sh.val != fh.val){
