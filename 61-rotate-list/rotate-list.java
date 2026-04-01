@@ -18,7 +18,8 @@ class Solution {
             cur = cur.next;
         }
         cur.next = head;
-        int position =count - (k% count);
+        int position =count - (k%count);
+
         for(int i=0;i<position;i++){
             cur =cur.next;
         }
