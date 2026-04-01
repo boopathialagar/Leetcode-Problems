@@ -11,17 +11,17 @@
 class Solution {
     public ListNode oddEvenList(ListNode head) {
         if(head == null)return head;
-        ListNode even = head.next;
-        ListNode connector = even;
-        ListNode odd = head;
+        ListNode evenNode = head.next;
+        ListNode oddNode = head;
+        ListNode connector = head.next;
 
-        while(even != null && even.next != null){
-            odd.next = odd.next.next;
-            odd = odd.next;
-            even.next = even.next.next;
-            even = even.next;
+        while(evenNode !=null && evenNode.next != null){
+            oddNode.next = oddNode.next.next;
+            oddNode = oddNode.next;
+            evenNode.next = evenNode.next.next;
+            evenNode = evenNode.next;
         }
-        odd.next = connector;
+        oddNode.next = connector;
         return head;
     }
 }
