@@ -32,19 +32,17 @@ class Solution {
     } 
     public void reorderList(ListNode head) {
         ListNode mid = mid(head);
-        ListNode next = mid.next;
+        ListNode sh = reverse(mid.next);
         mid.next = null;
-        ListNode sh = reverse(next);
         ListNode fh = head;
-        while(sh != null){
-            ListNode fhNext = fh.next;
-            fh.next = sh;
-            ListNode  shNext = sh.next;
-            sh.next = fhNext;
-            fh = fhNext;
-            sh = shNext;
-        }
-
-
+        ListNode temp = head;    
+        while(sh!= null){
+           ListNode fhNext = fh.next;
+           ListNode shNext = sh.next;
+           fh.next = sh;
+           sh.next = fhNext;
+           fh = fhNext;
+           sh = shNext;
+        } 
     }
 }
