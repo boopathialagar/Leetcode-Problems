@@ -42,9 +42,9 @@ class Solution {
             }
             ListNode nextGroup = kth.next;
             kth.next = null;
-            ListNode rev = reverse(temp);
+            ListNode newHead = reverse(temp);
             temp.next = nextGroup;
-            prevGroup.next = rev;
+            prevGroup.next = newHead;
             prevGroup = temp;
             temp = nextGroup;
         }
