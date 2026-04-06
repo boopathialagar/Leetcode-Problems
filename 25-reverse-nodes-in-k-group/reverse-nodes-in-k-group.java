@@ -9,7 +9,7 @@
  * }
  */
 class Solution {
-    public ListNode reverse(ListNode head){
+     public ListNode reverse(ListNode head){
         ListNode prev = null;
         ListNode next = null;
         ListNode cur = head;
@@ -34,19 +34,17 @@ class Solution {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode prevGroup = dummy;
-        ListNode temp = head;
+        ListNode temp =head;
         while(true){
-            ListNode kth = kth(temp,k);
-            if(kth == null){
-                break;
-            }
+            ListNode kth = kth(temp, k);
+            if(kth == null)break;
             ListNode nextGroup = kth.next;
             kth.next = null;
             ListNode newHead = reverse(temp);
-            temp.next = nextGroup;
             prevGroup.next = newHead;
+            temp.next = nextGroup;
             prevGroup = temp;
-            temp = nextGroup;
+            temp = temp.next;
         }
         return dummy.next;
     }
