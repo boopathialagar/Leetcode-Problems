@@ -5,7 +5,8 @@ int size,capacity,front,rear;
     public MyCircularQueue(int k) {
         arr = new int[k];
         capacity = k;
-        front=rear = -1;
+        front=0;
+        rear = -1;
         size = 0;        
     }
     
@@ -32,7 +33,7 @@ int size,capacity,front,rear;
         if(isEmpty()){
             return -1;
         }
-        return arr[(front+1)%capacity];
+        return arr[front];
     }
     
     public int Rear() {
