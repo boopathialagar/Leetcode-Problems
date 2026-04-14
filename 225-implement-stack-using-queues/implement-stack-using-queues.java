@@ -1,6 +1,6 @@
 class MyStack {
-    Queue<Integer> q1;
-    Queue<Integer> q2;
+Queue<Integer> q1;
+Queue<Integer> q2;
     public MyStack() {
         q1 = new LinkedList<>();
         q2 = new LinkedList<>();
@@ -8,8 +8,8 @@ class MyStack {
     
     public void push(int x) {
         q2.offer(x);
-        int s = q1.size();
-        for(int i=0;i<s;i++){
+        int size = q1.size();
+        for(int i=0;i<size;i++){
             q2.offer(q1.poll());
         }
         Queue<Integer> temp = q2;
@@ -26,7 +26,7 @@ class MyStack {
     }
     
     public boolean empty() {
-        return q1.size() == 0;
+        return q1.isEmpty() && q2.isEmpty();
     }
 }
 
