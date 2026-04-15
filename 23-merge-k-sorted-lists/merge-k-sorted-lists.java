@@ -17,8 +17,8 @@ class Solution {
         if(start == end)return list[start];
         else if(start == end-1)return merge(list[start],list[end]);
         int mid = (start+end)/2;
-        ListNode left = helper(list, start,mid);
-        ListNode right = helper(list,mid+1,end);
+        ListNode left = helper(list, start,mid-1);
+        ListNode right = helper(list,mid,end);
         return merge(left,right);
     }
     public ListNode merge(ListNode l1,ListNode l2){
