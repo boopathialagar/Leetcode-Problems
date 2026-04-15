@@ -14,22 +14,18 @@
  * }
  */
 class Solution {
-    int sum;
-
-    public void findNumber(TreeNode root, int n) {
-        if(root==null)return;
-        n = (n * 10) + root.val;
-        if (root.left == null && root.right == null) {
-            sum = sum + n;
-            return;
-        }
-        findNumber(root.left, n);
-        findNumber(root.right, n);
-    }
-
+    int sum =0;
     public int sumNumbers(TreeNode root) {
-        sum = 0;
-        findNumber(root, 0);
+        find(root,0);
         return sum;
+    }
+    public void find(TreeNode root,int n){
+        if(root == null)return;
+        n = (n*10)+root.val;
+        if(root.left == null && root.right == null){
+            sum = sum+n;
+        }
+        find(root.left,n);
+        find(root.right,n);
     }
 }
