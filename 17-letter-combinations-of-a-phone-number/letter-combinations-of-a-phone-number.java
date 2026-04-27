@@ -7,7 +7,7 @@ class Solution {
     }
 
     public void combination(List<String> result,String[] phone,int index,StringBuilder cur,String digits){
-        if(index == digits.length()){
+        if(cur.length() == digits.length()){
             result.add(cur.toString());
             return;
         }
