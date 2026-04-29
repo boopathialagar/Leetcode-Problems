@@ -3,6 +3,9 @@ class Solution {
     public int totalNQueens(int n) {
         List<List<String>> result = new ArrayList<>();
         char[][] board = new char[n][n];
+        for(int i=0;i<board.length;i++){
+            Arrays.fill(board[i],'.');
+        }
         solve(board,0,result);
         return count;
     }
