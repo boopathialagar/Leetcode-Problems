@@ -29,17 +29,27 @@ class Solution {
         }
     }
     public boolean check(char[][] board,int row,int col){
-        for(int i=0;i<row;i++){
-            if(board[i][col]=='Q'){
-                return false;
-            }
-            for(int j=0;j<board.length;j++){
-                if(board[i][j]=='Q'){
-                    if(Math.abs(i-row)==Math.abs(j-col)){
-                        return false;
-                    }
-                }
-            }
+        // for(int i=0;i<row;i++){
+        //     if(board[i][col]=='Q'){
+        //         return false;
+        //     }
+        //     for(int j=0;j<board.length;j++){
+        //         if(board[i][j]=='Q'){
+        //             if(Math.abs(i-row)==Math.abs(j-col)){
+        //                 return false;
+        //             }
+        //         }
+        //     }
+        // }
+
+        for(int i =0;i<row;i++){
+            if(board[i][col]=='Q') return false;
+        }
+        for(int i=row-1,j=col-1;i>=0 && j>=0;i--,j--){
+            if(board[i][j]=='Q') return false;
+        }
+        for(int i=row-1,j=col+1;i>=0 && j<board.length ; i--,j++){
+            if(board[i][j]=='Q') return false;
         }
         return true;
     }
