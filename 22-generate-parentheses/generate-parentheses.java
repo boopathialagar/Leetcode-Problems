@@ -1,19 +1,19 @@
 class Solution {
-    void backtrack(ArrayList<String> res,int oc, int cc, String s, int n){
-            if(s.length()==n*2){
-                res.add(s);
-                return;
-            }
-            if(oc<n){
-                backtrack(res,oc+1,cc,s+"(",n);
-            }
-            if(cc<oc){
-                backtrack(res,oc,cc+1,s+")",n);
-            }
-    }
     public List<String> generateParenthesis(int n) {
-        ArrayList<String> result = new ArrayList<>();
-        backtrack(result,0,0,"",n);
-        return result; 
+        List<String> result = new ArrayList<>();
+        find(result,0,0,"",n);
+        return result;
+    }
+    public void find(List<String> result,int oc,int cc,String s,int n){
+        if(s.length() == 2*n){
+            result.add(s);
+            return;
+        }
+        if(oc<n){
+            find(result,oc+1,cc,s+"(",n);
+        }
+        if(cc<oc){
+            find(result,oc,cc+1,s+")",n);
+        }
     }
 }
