@@ -1,7 +1,7 @@
 class Solution {
     public int rob(int[] nums) {
         int n = nums.length;
-        int[] profit = new int[n+1];
+        int[] profit = new int[n];
         for (int i = 0; i < n; i++) {
             if (i == 0) {
                 profit[0] = nums[0];
@@ -10,7 +10,6 @@ class Solution {
             } else {
                 profit[i] = Math.max(nums[i] + profit[i - 2], profit[i - 1]);
             }
-
         }
         return profit[n - 1];
     }
