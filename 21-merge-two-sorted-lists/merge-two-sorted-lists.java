@@ -23,8 +23,9 @@ class Solution {
             }
             temp = temp.next;
         }
-        temp.next = (list1 == null)? list2:list1;
+
+        temp.next = (list1 == null)?list2:list1;
+
         return dummy.next;
     }
-
 }
