@@ -5,7 +5,6 @@ class NumArray {
         for(int i=1;i<=nums.length;i++){
             prefixSum[i] = nums[i-1]+prefixSum[i-1];
         }
-        System.out.print(Arrays.toString(prefixSum));
     }
     
     public int sumRange(int left, int right) {
